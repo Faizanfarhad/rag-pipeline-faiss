@@ -19,7 +19,6 @@ services:
     envVars:
       - key: RAG_DOC_PATH
         value: docsContainer/1810.04805v2.pdf
-        sync: false
       - key: RAG_TOP_K
         value: "10"
       - key: RAG_CHUNK_SIZE
@@ -30,5 +29,3 @@ services:
         value: sentence-transformers/all-MiniLM-L6-v2
       - key: RAG_DEVICE
         value: cpu
-      - key: PYTHON_VERSION
-        value: "3.10"
