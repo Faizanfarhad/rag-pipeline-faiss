@@ -1,0 +1,124 @@
+{
+    "questions": [
+    {
+    "id": 1,
+    "question": "What does BERT stand for?",
+    "relevant_chunk_ids": [0, 1],
+    "gold_answer": "Bidirectional Encoder Representations from Transformers"
+    },
+    {
+        "id": 2,
+        "question": "Who are the authors of the BERT paper?",
+        "relevant_chunk_ids": [0, 2],
+        "gold_answer": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova"
+    },
+    {
+        "id": 3,
+        "question": "What are the two pre-training tasks used in BERT?",
+        "relevant_chunk_ids": [3, 4],
+        "gold_answer": "Masked Language Model (MLM) and Next Sentence Prediction (NSP)"
+    },
+    {
+        "id": 4,
+        "question": "What is the architecture of BERT?",
+        "relevant_chunk_ids": [1, 5],
+        "gold_answer": "Transformer-based architecture with bidirectional attention"
+    },  
+    {
+        "id": 5,
+        "question": "How does BERT differ from previous language models?",
+        "relevant_chunk_ids": [2, 6],
+        "gold_answer": "BERT uses bidirectional training instead of unidirectional"
+    },
+    {
+        "id": 6,
+        "question": "What datasets were used to train BERT?",
+        "relevant_chunk_ids": [7, 8],
+        "gold_answer": "BooksCorpus (800M words) and English Wikipedia (2,500M words)"
+    },
+    {
+        "id": 7,
+        "question": "What are the two model sizes of BERT?",
+        "relevant_chunk_ids": [3, 9],
+        "gold_answer": "BERT-Base (110M parameters) and BERT-Large (340M parameters)"
+    },
+    {
+        "id": 8,
+        "question": "What evaluation metrics were used in the BERT paper?",
+        "relevant_chunk_ids": [10, 11],
+        "gold_answer": "GLUE, SQuAD, and SWAG benchmarks"
+    },
+    {
+        "id": 9,
+        "question": "What is the context of the BERT paper?",
+        "relevant_chunk_ids": [12, 13],
+        "gold_answer": "NLP pre-training and language understanding"
+    },
+    {
+        "id": 10,
+        "question": "What conclusion does the BERT paper draw?",
+        "relevant_chunk_ids": [14, 15],
+        "gold_answer": "BERT achieves state-of-the-art results on many NLP tasks"
+    },
+    {
+        "id": 11,
+        "question": "What is the Transformer architecture?",
+        "relevant_chunk_ids": [16, 17],
+        "gold_answer": "Neural network architecture using self-attention mechanisms"
+    },
+    {
+        "id": 12,
+        "question": "What is the [CLS] token used for in BERT?",
+        "relevant_chunk_ids": [18, 19],
+        "gold_answer": "Classification token used for downstream tasks"
+    },
+    {
+        "id": 13,
+        "question": "What is the [SEP] token used for in BERT?",
+        "relevant_chunk_ids": [18, 19],
+        "gold_answer": "Separator token used to distinguish sentences"
+    },
+    {
+        "id": 14,
+        "question": "How many epochs was BERT trained for?",
+        "relevant_chunk_ids": [20, 21],
+        "gold_answer": "1 million steps on BooksCorpus and Wikipedia"
+    },
+    {
+        "id": 15,
+        "question": "What was BERT's performance on SQuAD v1.1?",
+        "relevant_chunk_ids": [22, 23],
+        "gold_answer": "93.2% F1 score"
+    },
+    {
+        "id": 16,
+        "question": "What is the learning rate used in BERT training?",
+        "relevant_chunk_ids": [24, 25],
+        "gold_answer": "1e-4 for BERT-Large, 2e-5 for fine-tuning"
+    },
+    {
+        "id": 17,
+        "question": "What is the WordPiece tokenizer?",
+        "relevant_chunk_ids": [26, 27],
+        "gold_answer": "Subword tokenization method used in BERT"
+    },
+    {
+        "id": 18,
+        "question": "What are the limitations of BERT?",
+        "relevant_chunk_ids": [28, 29],
+        "gold_answer": "Compute-intensive, limited context length (512 tokens)"
+    },
+    {
+        "id": 19,
+        "question": "How does BERT handle out-of-vocabulary words?",
+        "relevant_chunk_ids": [26, 27],
+        "gold_answer": "WordPiece tokenizer splits OOV words into subwords"
+    },
+    {
+        "id": 20,
+        "question": "What is the contribution of the BERT paper to NLP?",
+        "relevant_chunk_ids": [30, 31],
+        "gold_answer": "Introduced pre-training and fine-tuning paradigm for NLP"
+    }
+    ]
+}
