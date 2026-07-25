@@ -1,31 +1,35 @@
-# Render Blueprint - RAG QA Service
-# Deploys a FastAPI web service backed by FAISS vector search.
-# Blueprint reference: https://render.com/docs/blueprint-spec
-
+# render.yaml - RAG QA Service
 services:
   - type: web
     name: rag-faiss-service
     runtime: python
-    region: oregon  # closest to free tier default
-    plan: free       # 512MB RAM — enough for all-MiniLM-L6-v2 + FAISS
-
-    # Build
-    buildCommand: pip install -r requirements.txt && python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
-
-    # Start
+    region: oregon
+    plan: free
+    
+    # Build with memory optimization
+    buildCommand: |
+      echo "Installing dependencies..."
+      pip install --no-cache-dir -r requirements.txt
+      echo "Downloading embedding model..."
+      python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+      echo "Build complete!"
+    
     startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
-
-    # Environment variables — change these per deployment
+    
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.10"
       - key: RAG_DOC_PATH
         value: docsContainer/1810.04805v2.pdf
       - key: RAG_TOP_K
-        value: "10"
+        value: "5"
       - key: RAG_CHUNK_SIZE
-        value: "512"
+        value: "256"
       - key: RAG_CHUNK_OVERLAP
-        value: "50"
+        value: "30"
       - key: RAG_EMBED_MODEL
         value: sentence-transformers/all-MiniLM-L6-v2
       - key: RAG_DEVICE
         value: cpu
+
+    healthCheckPath: /health
