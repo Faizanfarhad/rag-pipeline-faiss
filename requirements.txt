@@ -1,34 +1,38 @@
-# RAG Pipeline Dependencies
+# RAG Pipeline Dependencies — Render CPU-only deployment
 
-# Core ML & Embeddings
-sentence_transformers>=3.0.0
-torch>=2.0.0
-transformers>=4.40.0
-accelerate>=0.30.0
+# Core
+fastapi>=0.100.0
+uvicorn>=0.29.0
 
-# Vector Search
-faiss-cpu>=1.8.0
-numpy>=1.24.0
-
-# Document Processing
-pymupdf==1.24.0
-pymupdf4llm==0.0.10
-nltk>=3.8.0
-regex>=2024.0.0
-
-# HTML/Markdown Parsing
-beautifulsoup4>=4.12.0
-markdown>=3.5.0
+# PyTorch (CPU-only — no GPU on Render free tier)
+torch>=2.0.1
+torchvision>=0.15.2
+torchaudio>=2.0.2
 
 # LlamaIndex (RAG framework)
 llama-index-core>=0.10.0
 llama-index-embeddings-huggingface>=0.2.0
 llama-index-vector-stores-faiss>=0.1.0
-llama-index-llms-huggingface>=0.2.0
 
-# API
-fastapi>=0.110.0
-uvicorn>=0.29.0
+# Embeddings
+sentence-transformers>=2.2.0
 
-# Evaluation (LLM-as-Judge)
-bitsandbytes>=0.43.0
+# Vector Search (CPU only — no CUDA dependency)
+faiss-cpu>=1.7.4
+
+# Document Processing (fixed version — pymupdf4llm needs pymupdf>=1.24.2)
+pymupdf>=1.24.2
+pymupdf4llm>=0.0.4
+beautifulsoup4>=4.12.0
+markdown>=3.5.0
+
+# NLP
+nltk>=3.8.0
+regex>=2024.0.0
+
+# Data
+numpy>=1.24.0
+
+# REMOVED: bitsandbytes (GPU-only, incompatible with Render free tier)
+# REMOVED: transformers, accelerate (sentence-transformers pulls them)
+# REMOVED: llama-index-llms-huggingface (no LLM in FAISS-only mode)
