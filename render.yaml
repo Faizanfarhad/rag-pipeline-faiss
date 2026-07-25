@@ -6,10 +6,8 @@ services:
     region: oregon
     plan: free
 
-    # Build: install deps first, THEN download model
-    buildCommand: |
-      pip install --no-cache-dir -r requirements.txt
-      python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+    # Build: only install deps (model loads at runtime to save build RAM)
+    buildCommand: pip install --no-cache-dir -r requirements.txt
 
     startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
 
@@ -20,11 +18,13 @@ services:
         value: cpu
       - key: RAG_EMBED_MODEL
         value: sentence-transformers/all-MiniLM-L6-v2
+      - key: RAG_DOC_PATH
+        value: docsContainer/text.md
       - key: RAG_TOP_K
-        value: "5"
+        value: "3"
       - key: RAG_CHUNK_SIZE
-        value: "256"
+        value: "128"
       - key: RAG_CHUNK_OVERLAP
-        value: "30"
+        value: "20"
 
     healthCheckPath: /health
